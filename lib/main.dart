@@ -68,26 +68,42 @@ class HomeActivity extends StatelessWidget{
       },
       ),
       IconButton(
-          icon: Icon(Icons.email),
-          onPressed: (){
-            MysnackBar('Sent email', context);
-
-          },
-      ),  IconButton(
-          icon: Icon(Icons.contact_emergency),
-          onPressed: (){
-            MysnackBar('Only for emergency', context);
+        icon: Icon(Icons.email),
+        onPressed: (){
+            ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Message has been send'),
+                    backgroundColor: Colors.green,
+                    duration: Duration(seconds: 1),
+                  ),
+                );
 
           },
       ),
+          IconButton(onPressed: (){
+            showDialog(context: context, builder:(context)
+            {
+              return AlertDialog(
+                title: Text('Emergency alert'),
+                content: Text('Emergency alert spoted'),
+                backgroundColor: Colors.red,
 
-      ]
+              );
+            },);
+
+
+          },
+          icon: Icon(Icons.emergency))
+
+
+
+      ],
 
 
 
 
       ),
-      body: Text('Hello'),
+
         floatingActionButton: FloatingActionButton(
         elevation: 10,
         child: Icon(Icons.add),
@@ -129,11 +145,10 @@ class HomeActivity extends StatelessWidget{
                 decoration: BoxDecoration(color: Colors.cyanAccent),
                 accountEmail: Text('taifur@gmail.com'),
                 accountName: Text('Taifur Rahaman'),
-                currentAccountPicture: Image.network('https://lh3.googleusercontent.com/pw/AP1GczME1E1O8ShmAJQpanXo_SIvSRdr8JgVEzhYDaLyzqM318NmBD_GVYGkkW1E0q8xBqjwE3wgqIZXNMPyGsE6jDcXzOnnPlT--5wY3uWqOkGuF7wBuC7B5l3Hw4bOqBvkKXZ-oohox9hjfMjyNBIKebKzUPDDs2GSPtzznWR_kqIHRM1s_ZXgITHX8eldXivdjX6hhcGM0B4CdUK-sExqINxIIvxV1qSeuaN-aX8c9NyfcdoqGUROXX7hVw7_4d91BDJ79w13fTfV7uvQfLzL4GLjNZVhjcWMbcdYjHewwJd0WBKx55kQdpYWqVRD9wwPml06_IKAOE430U-8weRobXV0TZQJcc2S62F8TjRuE7lmXW-hAzz5_KNKnZcYGbcFy5yA9CA3B29PKb0lyY5RcH5T0dCMzGuz8rNIiZH0PQz3tnKDAE-mJVkWEFCakTOWW4LsAsVg6-oR2cM_BVP82wT3HQUjHIyX-cP2uLArkVT3VVHxLUw1aoqxnyPy4KlpNa_jcvu4-5mzIe_pk_9E84XmonTQwrG2MOqPwPLZ-pYV0Ax2x1H1FmQ06l_Yd1XSmwGb2ObiZ1t4wBcLp72aBzgFFk0VWOziP2YiuaGaJFRPpewL5U_04vyBzcISlyRDTX2LNRphSUmV2bLLxna_yuAiAGUzXbBUqT6PJS4xvnVCFkuBAhlTXYITKW1fV5xfTKO9wvUrCyfe6FWJFBZPHt-AiC1GZg_uo8Nz2YTCt5khh8FVScuuV-xOvSI4Px8PSn2ZfxhDZRLOUGuhWxqy0FihT3ZV9ihobRN14371siMiWF_x0Zn4KAG0WHRZ1Ibpg-cRF9cDh6aqvXFp4vxF3P5yQQTyK8CgYBDZQzQPvlJwM_ixcUw8JyF1fJnbORrNobSzTcx6saSzwAsGGEpp-ms=w641-h855-s-no-gm?authuser=0'),
-
-
-
-
+                currentAccountPicture: Image.network('https://scontent.fzyl1-1.fna.fbcdn.net/v/t39.30808-6/425425695_1131432544700301_3335065903260935136_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEhBx2NW9RTed8hP3uGGB_EL0HuhdyhNqYvQe6F3KE2plbApzUU3P-mwOVMdKPcRf8QrvP8vWXq19HTFMel84-e&_nc_ohc=cDmHx0XYC6wAX9GpXsZ&_nc_ht=scontent.fzyl1-1.fna&oh=00_AfB_Mcyr4OVq3A43FiILI2FxPkwCNu5GiOhZIEKYaPUcEw&oe=6608095D',
+                  height: 300,
+                  width: 100,
+                )
 
 
               )
@@ -183,9 +198,10 @@ class HomeActivity extends StatelessWidget{
         decoration: BoxDecoration(color: Colors.cyanAccent),
     accountEmail: Text('taifur@gmail.com'),
     accountName: Text('Taifur Rahaman'),
-    currentAccountPicture: Image.network('https://lh3.googleusercontent.com/pw/AP1GczME1E1O8ShmAJQpanXo_SIvSRdr8JgVEzhYDaLyzqM318NmBD_GVYGkkW1E0q8xBqjwE3wgqIZXNMPyGsE6jDcXzOnnPlT--5wY3uWqOkGuF7wBuC7B5l3Hw4bOqBvkKXZ-oohox9hjfMjyNBIKebKzUPDDs2GSPtzznWR_kqIHRM1s_ZXgITHX8eldXivdjX6hhcGM0B4CdUK-sExqINxIIvxV1qSeuaN-aX8c9NyfcdoqGUROXX7hVw7_4d91BDJ79w13fTfV7uvQfLzL4GLjNZVhjcWMbcdYjHewwJd0WBKx55kQdpYWqVRD9wwPml06_IKAOE430U-8weRobXV0TZQJcc2S62F8TjRuE7lmXW-hAzz5_KNKnZcYGbcFy5yA9CA3B29PKb0lyY5RcH5T0dCMzGuz8rNIiZH0PQz3tnKDAE-mJVkWEFCakTOWW4LsAsVg6-oR2cM_BVP82wT3HQUjHIyX-cP2uLArkVT3VVHxLUw1aoqxnyPy4KlpNa_jcvu4-5mzIe_pk_9E84XmonTQwrG2MOqPwPLZ-pYV0Ax2x1H1FmQ06l_Yd1XSmwGb2ObiZ1t4wBcLp72aBzgFFk0VWOziP2YiuaGaJFRPpewL5U_04vyBzcISlyRDTX2LNRphSUmV2bLLxna_yuAiAGUzXbBUqT6PJS4xvnVCFkuBAhlTXYITKW1fV5xfTKO9wvUrCyfe6FWJFBZPHt-AiC1GZg_uo8Nz2YTCt5khh8FVScuuV-xOvSI4Px8PSn2ZfxhDZRLOUGuhWxqy0FihT3ZV9ihobRN14371siMiWF_x0Zn4KAG0WHRZ1Ibpg-cRF9cDh6aqvXFp4vxF3P5yQQTyK8CgYBDZQzQPvlJwM_ixcUw8JyF1fJnbORrNobSzTcx6saSzwAsGGEpp-ms=w641-h855-s-no-gm?authuser=0'),
-
-
+            currentAccountPicture: Image.network('https://scontent.fzyl1-1.fna.fbcdn.net/v/t39.30808-6/425425695_1131432544700301_3335065903260935136_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEhBx2NW9RTed8hP3uGGB_EL0HuhdyhNqYvQe6F3KE2plbApzUU3P-mwOVMdKPcRf8QrvP8vWXq19HTFMel84-e&_nc_ohc=cDmHx0XYC6wAX9GpXsZ&_nc_ht=scontent.fzyl1-1.fna&oh=00_AfB_Mcyr4OVq3A43FiILI2FxPkwCNu5GiOhZIEKYaPUcEw&oe=6608095D',
+              height: 300,
+              width: 100,
+            )
 
 
 
@@ -228,7 +244,12 @@ class HomeActivity extends StatelessWidget{
     ),
     ],
     ),
-    )
+    ),
+
+        body: Center(
+          child: Text('Taifur Rahaman'),
+
+        ),
 
 
 
